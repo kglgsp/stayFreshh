@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,12 +35,15 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hQj-c1-pbJ">
                                                     <rect key="frame" x="283" y="9" width="62" height="63"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" secondItem="hQj-c1-pbJ" secondAttribute="height" multiplier="62:63" id="2dL-GM-83x"/>
                                                         <constraint firstAttribute="width" constant="62" id="AZZ-Rl-ej0"/>
+                                                        <constraint firstAttribute="height" constant="63" id="LdD-W9-CSH"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUD-s2-Ilj">
                                                     <rect key="frame" x="15" y="24" width="260" height="32"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Ak9-LQ-dB3"/>
                                                         <constraint firstAttribute="height" constant="32" id="t1E-hF-law"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -57,49 +62,56 @@
                                                         <action selector="datePickerChanged:" destination="XZU-Dg-Ncp" eventType="valueChanged" id="ouN-5j-dki"/>
                                                     </connections>
                                                 </datePicker>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dE-nI-C99">
-                                                    <rect key="frame" x="15" y="91" width="345" height="39"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="39" id="wKW-wn-Kya"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WY1-O1-nut">
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WY1-O1-nut">
                                                     <rect key="frame" x="22" y="319" width="330" height="3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="3" id="Ar1-7w-leN"/>
                                                     </constraints>
                                                 </progressView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiI-b6-lyK">
+                                                    <rect key="frame" x="22" y="92" width="323" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="lHY-jb-Ltb" userLabel="dateHeight"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <state key="normal" title="Expire Date">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="selectExpireDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Duy-cJ-Idb"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="rmb-Sd-xkA" firstAttribute="leading" secondItem="WNx-in-NwX" secondAttribute="leading" id="0P4-XM-KRu"/>
-                                                <constraint firstItem="NUD-s2-Ilj" firstAttribute="leading" secondItem="WNx-in-NwX" secondAttribute="leadingMargin" id="0YU-xR-dmC"/>
-                                                <constraint firstItem="6dE-nI-C99" firstAttribute="top" secondItem="hQj-c1-pbJ" secondAttribute="bottom" constant="19" id="B1P-GI-J4p"/>
-                                                <constraint firstItem="NUD-s2-Ilj" firstAttribute="leading" secondItem="6dE-nI-C99" secondAttribute="leading" id="EDQ-Y5-gS4"/>
+                                                <constraint firstItem="NUD-s2-Ilj" firstAttribute="leading" secondItem="LiI-b6-lyK" secondAttribute="leadingMargin" constant="-15" id="0YU-xR-dmC"/>
+                                                <constraint firstItem="rmb-Sd-xkA" firstAttribute="top" secondItem="LiI-b6-lyK" secondAttribute="bottom" constant="5" id="GZM-tW-VEz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hQj-c1-pbJ" secondAttribute="trailing" constant="15" id="GlK-E2-Jth"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="WY1-O1-nut" secondAttribute="bottom" constant="30" id="INp-l6-Y2C"/>
                                                 <constraint firstItem="WY1-O1-nut" firstAttribute="leading" secondItem="WNx-in-NwX" secondAttribute="leadingMargin" constant="7" id="Ixi-B3-Lgo"/>
                                                 <constraint firstAttribute="trailing" secondItem="rmb-Sd-xkA" secondAttribute="trailing" id="NKl-hG-lvh"/>
+                                                <constraint firstItem="hQj-c1-pbJ" firstAttribute="top" secondItem="WNx-in-NwX" secondAttribute="top" constant="9" id="T3V-6p-vYO"/>
                                                 <constraint firstItem="NUD-s2-Ilj" firstAttribute="top" secondItem="WNx-in-NwX" secondAttribute="topMargin" constant="13" id="Uei-DA-JM1"/>
-                                                <constraint firstItem="6dE-nI-C99" firstAttribute="centerX" secondItem="rmb-Sd-xkA" secondAttribute="centerX" id="YeW-rs-FW6"/>
+                                                <constraint firstItem="LiI-b6-lyK" firstAttribute="top" secondItem="hQj-c1-pbJ" secondAttribute="bottom" constant="20" id="ZEk-Gu-Fcj"/>
+                                                <constraint firstItem="LiI-b6-lyK" firstAttribute="leading" secondItem="rmb-Sd-xkA" secondAttribute="leading" constant="22" id="anc-l5-OSr"/>
                                                 <constraint firstItem="NUD-s2-Ilj" firstAttribute="centerY" secondItem="hQj-c1-pbJ" secondAttribute="centerY" id="cr0-qQ-feB"/>
                                                 <constraint firstItem="hQj-c1-pbJ" firstAttribute="leading" secondItem="NUD-s2-Ilj" secondAttribute="trailing" constant="8" symbolic="YES" id="ctC-ku-pfm"/>
-                                                <constraint firstItem="6dE-nI-C99" firstAttribute="top" secondItem="NUD-s2-Ilj" secondAttribute="bottom" constant="35" id="dmC-Vv-1qE"/>
                                                 <constraint firstItem="rmb-Sd-xkA" firstAttribute="centerX" secondItem="WY1-O1-nut" secondAttribute="centerX" id="e6s-vo-w2r"/>
+                                                <constraint firstItem="LiI-b6-lyK" firstAttribute="top" secondItem="NUD-s2-Ilj" secondAttribute="bottom" constant="36" id="iUH-Oh-hHp"/>
+                                                <constraint firstItem="LiI-b6-lyK" firstAttribute="trailing" secondItem="NUD-s2-Ilj" secondAttribute="trailing" constant="70" id="lax-pA-m4x"/>
                                                 <constraint firstItem="WY1-O1-nut" firstAttribute="top" secondItem="rmb-Sd-xkA" secondAttribute="bottom" constant="34" id="pZO-Nn-31o"/>
-                                                <constraint firstItem="rmb-Sd-xkA" firstAttribute="top" secondItem="hQj-c1-pbJ" secondAttribute="bottom" constant="55" id="pbb-Tl-08p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ExpireDate" destination="6dE-nI-C99" id="4qq-xf-g16"/>
+                                            <outlet property="ExpireDate" destination="LiI-b6-lyK" id="1WD-Ho-hS7"/>
                                             <outlet property="ExpireDatePicker" destination="rmb-Sd-xkA" id="uiG-ye-DtR"/>
+                                            <outlet property="PBbuttom" destination="INp-l6-Y2C" id="dYh-LE-BN6"/>
                                             <outlet property="PBheight" destination="Ar1-7w-leN" id="w68-7a-p3V"/>
+                                            <outlet property="PBtop" destination="pZO-Nn-31o" id="wOS-rC-an3"/>
                                             <outlet property="ProgressBar" destination="WY1-O1-nut" id="zkj-Dk-et0"/>
                                             <outlet property="StatusFace" destination="hQj-c1-pbJ" id="ZxT-Oe-zAY"/>
                                             <outlet property="Title" destination="NUD-s2-Ilj" id="j8y-Bn-h6A"/>
-                                            <outlet property="dateHeight" destination="wKW-wn-Kya" id="4kz-9K-51y"/>
+                                            <outlet property="dateHeight" destination="lHY-jb-Ltb" id="chH-Ea-nCZ"/>
                                             <outlet property="datePickerHeight" destination="8KA-2y-uRA" id="l21-H4-5pg"/>
                                         </connections>
                                     </tableViewCell>

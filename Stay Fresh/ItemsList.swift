@@ -16,6 +16,7 @@ class ItemsList: UIViewController {
     var items: [Item] = []
     
     var expandedRows = Set<Int>()
+    var expandedPickers = Set<Int>()
     
     //things loaded when app opens
     override func viewDidLoad() {
@@ -58,6 +59,7 @@ extension ItemsList: UITableViewDelegate, UITableViewDataSource {
         
         cell.setItem(item: item)
         cell.cellExpanded = self.expandedRows.contains(indexPath.row)
+        cell.datePickerExpanded = self.expandedPickers.contains(indexPath.row)
         
         return cell
     }
@@ -66,18 +68,20 @@ extension ItemsList: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cell = tableView.cellForRow(at: indexPath) as! CustomCell
-        
-        switch cell.cellExpanded {
-        case true:
-            self.expandedRows.remove(indexPath.row)
-        case false:
-            self.expandedRows.insert(indexPath.row)
-        }
-        
-        cell.cellExpanded = !cell.cellExpanded
-        
-        tableView.beginUpdates()
-        tableView.endUpdates()
+            
+            switch cell.cellExpanded {
+            case true:
+                self.expandedRows.remove(indexPath.row)
+                cell.datePickerExpanded = false
+            case false:
+                self.expandedRows.insert(indexPath.row)
+            }
+            
+            cell.cellExpanded = !cell.cellExpanded
+            
+            tableView.beginUpdates()
+            
+            tableView.endUpdates()
     }
     
     //when deselect a cell
@@ -86,10 +90,32 @@ extension ItemsList: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.cellForRow(at: indexPath) as! CustomCell
         
         self.expandedRows.remove(indexPath.row)
+        self.expandedPickers.remove(indexPath.row)
         cell.cellExpanded = false
+        cell.datePickerExpanded = false
         
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
+    }
+    
+    @IBAction func selectExpireDate(_ sender: UIButton) {
+        let cell = sender.superview?.superview as! CustomCell
+        let indexPath = tableView.indexPath(for: cell)
+        
+        //let cellClick = tableView.cellForRow(at: indexPath!) as! CustomCell
+        //cellClick.datePickerExpanded = !cellClick.datePickerExpanded
+        
+        switch cell.datePickerExpanded {
+        case true:
+            self.expandedPickers.remove((indexPath?.row)!)
+        case false:
+            self.expandedPickers.insert((indexPath?.row)!)
+        }
+        
+        cell.datePickerExpanded = !cell.datePickerExpanded
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
