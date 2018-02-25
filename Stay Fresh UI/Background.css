@@ -1,0 +1,96 @@
+/* Rectangle: */
+background-image: linear-gradient(-126deg, #C8C5EB 0%, #8784A2 0%, #FFC7C7 100%);
+box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50), 0 2px 4px 0 rgba(0,0,0,0.50), 0 2px 4px 0 rgba(0,0,0,0.50);
+/* Add Grocery: */
+font-family: SFUIDisplay-Regular;
+font-size: 25px;
+color: #6EB2A2;
+/* Overrides/Cell/Add Detail: */
+/* Rectangle: */
+background-image: linear-gradient(-126deg, #3D389B 0%, #A6A1DC 47%, #FFC7C7 100%);
+box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50), 0 2px 4px 0 rgba(0,0,0,0.50), 0 2px 4px 0 rgba(0,0,0,0.50);
+/* Status Bar: */
+/* Screen Shot 2018-02-24 at 11.48.11 PM: */
+opacity: 0.7;
+/* Stay Freshh: */
+font-family: SFUIDisplay-Regular;
+font-size: 55px;
+color: #6EB2A2;
+
+
+/* Background: */
+background-image: linear-gradient(-126deg, #3D389B 0%, #A6A1DC 47%, #FFC7C7 100%);
+box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50), 0 2px 4px 0 rgba(0,0,0,0.50), 0 2px 4px 0 rgba(0,0,0,0.50);
+/* Bars/Navigation/Navigation Bar: */
+/* Rectangle 4: */
+background: rgba(216,216,216,0.50);
+border: 1px solid #979797;
+border-radius: 8px;
+/* Rectangle 2: */
+background: rgba(216,216,216,0.50);
+border: 1px solid #979797;
+border-radius: 8px;
+/* happy: */
+/* Rectangle 2: */
+background: rgba(216,216,216,0.50);
+border: 1px solid #979797;
+border-radius: 8px;
+/* Rectangle 2: */
+background: rgba(216,216,216,0.50);
+border: 1px solid #979797;
+border-radius: 8px;
+/* nneutral: */
+/* Rectangle 2: */
+background: rgba(216,216,216,0.50);
+border: 1px solid #979797;
+border-radius: 8px;
+/* happy: */
+/* Expiration Date:: */
+font-family: EurostileRegular;
+font-size: 25px;
+color: #80B4A8;
+/* 08/10/2018: */
+font-family: SFUIDisplay-Regular;
+font-size: 30px;
+color: #9B9093;
+/* Overrides/Cell/Add Detail: */
+/* Food #4: */
+opacity: 0.8;
+font-family: SFUIDisplay-Regular;
+font-size: 36px;
+color: #BF6B6E;
+/* Food #1: */
+opacity: 0.8;
+font-family: SFUIDisplay-Regular;
+font-size: 36px;
+color: #BF6B6E;
+/* Food #2: */
+opacity: 0.8;
+font-family: SFUIDisplay-Regular;
+font-size: 36px;
+color: #BF6B6E;
+/* Food #3: */
+opacity: 0.8;
+font-family: SFUIDisplay-Regular;
+font-size: 36px;
+color: #BF6B6E;
+/* Food #5: */
+font-family: SFUIDisplay-Regular;
+font-size: 60px;
+color: #BF6B6E;
+/* nneutral: */
+/* sad: */
+/* ProgressBar: */
+background: #D8D8D8;
+border: 1px solid #979797;
+/* Percentage: */
+font-family: EurostileBold;
+font-size: 10px;
+color: #BF6B6E;
+/* ShadedProgress: */
+background: #80B4A8;
+border: 1px solid #979797;
+
+
+/* App Icon 60 x 60: */
+box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
