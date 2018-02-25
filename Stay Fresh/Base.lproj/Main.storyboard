@@ -45,7 +45,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rmb-Sd-xkA">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rmb-Sd-xkA">
                                                     <rect key="frame" x="0.0" y="127" width="375" height="158"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="158" id="8KA-2y-uRA"/>
@@ -53,6 +53,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="541241052.00720704">
                                                         <!--2018-02-25 08:44:12 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="XZU-Dg-Ncp" eventType="valueChanged" id="ouN-5j-dki"/>
+                                                    </connections>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dE-nI-C99">
                                                     <rect key="frame" x="15" y="91" width="345" height="39"/>
@@ -92,9 +95,12 @@
                                         <connections>
                                             <outlet property="ExpireDate" destination="6dE-nI-C99" id="4qq-xf-g16"/>
                                             <outlet property="ExpireDatePicker" destination="rmb-Sd-xkA" id="uiG-ye-DtR"/>
+                                            <outlet property="PBheight" destination="Ar1-7w-leN" id="w68-7a-p3V"/>
                                             <outlet property="ProgressBar" destination="WY1-O1-nut" id="zkj-Dk-et0"/>
                                             <outlet property="StatusFace" destination="hQj-c1-pbJ" id="ZxT-Oe-zAY"/>
                                             <outlet property="Title" destination="NUD-s2-Ilj" id="j8y-Bn-h6A"/>
+                                            <outlet property="dateHeight" destination="wKW-wn-Kya" id="4kz-9K-51y"/>
+                                            <outlet property="datePickerHeight" destination="8KA-2y-uRA" id="l21-H4-5pg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

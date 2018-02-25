@@ -15,7 +15,7 @@ class ItemsList: UIViewController {
     //initilize an arry of items
     var items: [Item] = []
     
-    var expandCell: Bool = false
+    var expandedRows = Set<Int>()
     
     //things loaded when app opens
     override func viewDidLoad() {
@@ -24,6 +24,7 @@ class ItemsList: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     //create an array of item
@@ -47,6 +48,7 @@ extension ItemsList: UITableViewDelegate, UITableViewDataSource {
         return items.count
     }
     
+    //configure the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //grab the correct item from the array
@@ -55,31 +57,47 @@ extension ItemsList: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomCell
         
         cell.setItem(item: item)
+        cell.cellExpanded = self.expandedRows.contains(indexPath.row)
         
         return cell
     }
     
+    //when select a cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath)
+        let cell = tableView.cellForRow(at: indexPath) as! CustomCell
         
-            if expandCell {
-                expandCell = false
-            } else {
-                expandCell = true
-            }
-            tableView.beginUpdates()
-            tableView.endUpdates()
+        switch cell.cellExpanded {
+        case true:
+            self.expandedRows.remove(indexPath.row)
+        case false:
+            self.expandedRows.insert(indexPath.row)
+        }
+        
+        cell.cellExpanded = !cell.cellExpanded
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            if expandCell {
-                return 300
-            } else {
-                return 50
-            }
-        return 50
+    //when deselect a cell
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath) as! CustomCell
+        
+        self.expandedRows.remove(indexPath.row)
+        cell.cellExpanded = false
+        
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 144.0
+        
+    }
+    
 }
 
 
